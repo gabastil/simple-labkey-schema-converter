@@ -7,7 +7,6 @@ from optparse import OptionParser
 if __name__ == "__main__":
     optparser = OptionParser()
 
-
-    filepath = #
+    filepath = "resources/template.txt"
 
     make_schema(filepath)

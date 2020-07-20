@@ -1,0 +1,41 @@
+section
+    field
+        class
+        text
+        value
+        value
+        value
+    field
+        class
+        text
+        value
+        value
+        value
+    field
+        class
+        text
+        value
+        value
+        value
+
+section
+    field
+        class
+        text
+        value
+        value
+        value
+    field
+        class
+        numeric
+
+section
+    field
+        class
+        text
+        value
+        value
+        value
+    field
+        class
+        date
