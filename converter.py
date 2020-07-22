@@ -51,23 +51,26 @@ class LabKeySchema(Schema):
 
         for field, values in fields.items():
             field_ = self._set_field(field, values)
-            # pp.pprint(field_)
             parsed.append(field_)
 
         return parsed
 
     def _set_field(self, name, values):
-        class_, type_, *values_ = values
-        return {'field' : name,
-                'datatype' : 'date' if type_.lower() == 'date' else 'string',
-                'closedClass' : True if class_.lower().startswith('c') else False,
-                'multiValue': False,
-                'diseaseProperties' : [
-                     {
-                         'diseaseGroup': ["*"],
-                         'values': values_
-                     }
-               ]}
+        field = {'field' : name}
+
+        class_, multiple_, type_, *values_ = values
+
+        if isinstance(class_, dict):
+            class_, listeners_, triggers_ = class_['Linked']
+            field['listeners'] = dict(field=listeners_, handlers=[{'values':triggers_, 'success' : 'SHOW', 'failure' : 'HIDE'}])
+            field['hidden'] = True
+
+        field['datatype'] = 'date' if type_.lower() == 'date' else 'string'
+        field['closedClass'] = True if class_.lower().startswith('c') else False
+        field['multiValue'] = multiple_.lower().startswith('m')
+        field['diseaseProperties'] = [dict(diseaseGroup=['*'], values=values_)]
+
+        return field
 
     def _set_group(self, level, order="alpha", orientation="horizontal"):
         return dict(level=level, order=order, orientation=orientation)

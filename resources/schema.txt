@@ -1,6 +1,7 @@
 Circumferential Resection Margin (CRM):
     CRM Presence & Status:
         - Closed Class
+        - Single
         - Text
         - Involved, Positive, or +
         - Not Involved, Negative
@@ -9,19 +10,23 @@ Circumferential Resection Margin (CRM):
         - CRM assessed in a speciment different from resection (not coded 27, 30-80)
     Measurement:
         - Open Class
+        - Single
         - Numeric
     Measurement Unit:
         - Closed Class
+        - Single
         - Text
         - Millimeters or mm
         - Centimeters or cm
         - Inches or in
     Procedure Date:
         - Open Class
+        - Single
         - Date
 Procedure Type (Surgery):
     Procedure:
         - Open Class
+        - Single
         - Text
         - Local Excision (Transanal Disk Excision)
         - Excisional Biopsy (Polypectomy)
@@ -34,6 +39,7 @@ Procedure Type (Surgery):
 Additional Margins:
     Proximal:
         - Closed Class
+        - Single
         - Text
         - Involved, Positive, or +
         - Not Involved, Negative, or –
@@ -41,6 +47,7 @@ Additional Margins:
         - Not Applicable (NA) or not assessed
     Distal:
         - Closed Class
+        - Single
         - Text
         - Involved, Positive, or +
         - Not Involved, Negative, or –
@@ -48,6 +55,7 @@ Additional Margins:
         - Not Applicable (NA) or not assessed
     Mucosal:
         - Closed Class
+        - Single
         - Text
         - Involved, Positive, or +
         - Not Involved, Negative, or –
@@ -55,6 +63,7 @@ Additional Margins:
         - Not Applicable (NA) or not assessed
     Deep (Stalk) Margins:
         - Closed Class
+        - Single
         - Text
         - Involved, Positive, or +
         - Not Involved, Negative, or –
@@ -62,9 +71,11 @@ Additional Margins:
         - Not Applicable (NA) or not assessed
     Other Margin:
         - Open Class
+        - Single
         - Text
     Other Margin Status:
         - Closed Class
+        - Single
         - Text
         - Involved, Positive, or +
         - Not Involved, Negative, or –
@@ -73,6 +84,7 @@ Additional Margins:
 Site-Specific Factors (SSF)/Site-Specific Data Item (SSDI):
     KRAS:
         - Closed Class
+        - Single
         - Text
         - Normal
         - Abnormal
@@ -83,15 +95,17 @@ Site-Specific Factors (SSF)/Site-Specific Data Item (SSDI):
         - Test ordered but pathology report does not contain test results
     KRAS CAP:
         - Open Class
+        - Single
         - Text
         - No mutation detected
         - Mutation identified
         - Cannot be determined (explain)
     Subfield Mutation:
-        - Multiple:
+        - Linked:
             - Open Class
-            - Multiple
             - KRAS CAP
+            - [Mutation identified]
+        - Multiple
         - Text
         - Codon 12
         - Gly12Asp (GGT>GAT)
@@ -122,6 +136,7 @@ Site-Specific Factors (SSF)/Site-Specific Data Item (SSDI):
         - Other codon (specify)
     MSI (Microsatellite Instability):
         - Closed Class
+        - Single
         - Text
         - Stable MSS
         - Unstable MSI-Low
@@ -129,20 +144,24 @@ Site-Specific Factors (SSF)/Site-Specific Data Item (SSDI):
         - Test ordered but pathology report does not contain test results
     MMR (Mismatch Repair):
         - Closed Class
+        - Single
         - Text
         - Intact, no loss of nuclear expression of MMR proteins
         - Loss of nuclear expression of one or more MMR proteins
         - Test ordered but pathology report does not contain test results
     Tumor Deposits:
         - Closed Class
+        - Single
         - Text
         - Tumor deposits negative, absent
         - Tumor deposits positive, present
     Number of Tumor Deposits:
         - Open Class
+        - Single
         - Numeric
     Perineural Invasion:
         - Closed Class
+        - Single
         - Text
         - Present, Positive
         - Absent, Negative

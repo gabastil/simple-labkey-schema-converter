@@ -1,14 +1,14 @@
 {
-   "pathology" : {
+    "pathology" : {
       "groupings" : [
          {
-            "orientation" : "horizontal",
+            "level" : "table",
             "order" : "alpha",
-            "level" : "table"
+            "orientation" : "horizontal"
          },
          {
-            "orientation" : "horizontal",
             "order" : "alpha",
+            "orientation" : "horizontal",
             "level" : "field"
          }
       ],
@@ -16,7 +16,6 @@
          {
             "fields" : [
                {
-                  "datatype" : "string",
                   "closedClass" : true,
                   "diseaseProperties" : [
                      {
@@ -32,27 +31,28 @@
                         ]
                      }
                   ],
+                  "datatype" : "string",
                   "field" : "CRM Presence & Status",
                   "multiValue" : false
                },
                {
+                  "field" : "Measurement",
+                  "datatype" : "string",
+                  "multiValue" : false,
                   "closedClass" : false,
                   "diseaseProperties" : [
                      {
-                        "values" : [],
                         "diseaseGroup" : [
                            "*"
-                        ]
+                        ],
+                        "values" : []
                      }
-                  ],
-                  "field" : "Measurement",
-                  "multiValue" : false,
-                  "datatype" : "string"
+                  ]
                },
                {
                   "field" : "Measurement Unit",
+                  "datatype" : "string",
                   "multiValue" : false,
-                  "closedClass" : true,
                   "diseaseProperties" : [
                      {
                         "diseaseGroup" : [
@@ -65,30 +65,29 @@
                         ]
                      }
                   ],
-                  "datatype" : "string"
+                  "closedClass" : true
                },
                {
-                  "field" : "Procedure Date",
-                  "multiValue" : false,
-                  "closedClass" : false,
                   "diseaseProperties" : [
                      {
-                        "values" : [],
                         "diseaseGroup" : [
                            "*"
-                        ]
+                        ],
+                        "values" : []
                      }
                   ],
-                  "datatype" : "date"
+                  "closedClass" : false,
+                  "field" : "Procedure Date",
+                  "datatype" : "date",
+                  "multiValue" : false
                }
             ],
             "table" : "Circumferential Resection Margin (CRM)"
          },
          {
-            "table" : "Procedure Type (Surgery)",
             "fields" : [
                {
-                  "datatype" : "string",
+                  "closedClass" : false,
                   "diseaseProperties" : [
                      {
                         "values" : [
@@ -106,55 +105,56 @@
                         ]
                      }
                   ],
-                  "closedClass" : false,
-                  "multiValue" : false,
-                  "field" : "Procedure"
+                  "field" : "Procedure",
+                  "datatype" : "string",
+                  "multiValue" : false
                }
-            ]
+            ],
+            "table" : "Procedure Type (Surgery)"
          },
          {
             "table" : "Additional Margins",
             "fields" : [
                {
-                  "multiValue" : false,
-                  "field" : "Proximal",
                   "diseaseProperties" : [
                      {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
                         "values" : [
                            "Involved, Positive, or +",
                            "Not Involved, Negative, or –",
                            "Cannot Be Determined",
                            "Not Applicable (NA) or not assessed"
-                        ],
-                        "diseaseGroup" : [
-                           "*"
                         ]
                      }
                   ],
                   "closedClass" : true,
-                  "datatype" : "string"
-               },
-               {
-                  "diseaseProperties" : [
-                     {
-                        "values" : [
-                           "Involved, Positive, or +",
-                           "Not Involved, Negative, or –",
-                           "Cannot Be Determined",
-                           "Not Applicable (NA) or not assessed"
-                        ],
-                        "diseaseGroup" : [
-                           "*"
-                        ]
-                     }
-                  ],
-                  "closedClass" : true,
-                  "multiValue" : false,
-                  "field" : "Distal",
-                  "datatype" : "string"
-               },
-               {
                   "datatype" : "string",
+                  "field" : "Proximal",
+                  "multiValue" : false
+               },
+               {
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Distal",
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ]
+                     }
+                  ]
+               },
+               {
+                  "closedClass" : true,
                   "diseaseProperties" : [
                      {
                         "diseaseGroup" : [
@@ -168,32 +168,30 @@
                         ]
                      }
                   ],
-                  "closedClass" : true,
                   "multiValue" : false,
+                  "datatype" : "string",
                   "field" : "Mucosal"
                },
                {
-                  "field" : "Deep (Stalk) Margins",
-                  "multiValue" : false,
-                  "closedClass" : true,
                   "diseaseProperties" : [
                      {
-                        "diseaseGroup" : [
-                           "*"
-                        ],
                         "values" : [
                            "Involved, Positive, or +",
                            "Not Involved, Negative, or –",
                            "Cannot Be Determined",
                            "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
                         ]
                      }
                   ],
+                  "closedClass" : true,
+                  "multiValue" : false,
+                  "field" : "Deep (Stalk) Margins",
                   "datatype" : "string"
                },
                {
-                  "multiValue" : false,
-                  "field" : "Other Margin",
                   "diseaseProperties" : [
                      {
                         "values" : [],
@@ -203,11 +201,14 @@
                      }
                   ],
                   "closedClass" : false,
-                  "datatype" : "string"
+                  "field" : "Other Margin",
+                  "datatype" : "string",
+                  "multiValue" : false
                },
                {
-                  "field" : "Other Margin Status",
                   "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Other Margin Status",
                   "closedClass" : true,
                   "diseaseProperties" : [
                      {
@@ -221,14 +222,14 @@
                            "*"
                         ]
                      }
-                  ],
-                  "datatype" : "string"
+                  ]
                }
             ]
          },
          {
             "fields" : [
                {
+                  "datatype" : "string",
                   "field" : "KRAS",
                   "multiValue" : false,
                   "closedClass" : true,
@@ -247,10 +248,10 @@
                            "*"
                         ]
                      }
-                  ],
-                  "datatype" : "string"
+                  ]
                },
                {
+                  "closedClass" : false,
                   "diseaseProperties" : [
                      {
                         "diseaseGroup" : [
@@ -259,51 +260,70 @@
                         "values" : [
                            "No mutation detected",
                            "Mutation identified",
-                           {
-                              "Subfield Mutation" : [
-                                 "Multiple",
-                                 "Text",
-                                 "Codon 12",
-                                 "Gly12Asp (GGT>GAT)",
-                                 "Gly12Val (GGT>GTT)",
-                                 "Gly12Cys (GGT>TGT)",
-                                 "Gly12Ser (GGT>AGT)",
-                                 "Gly12Ala (GGT>GCT)",
-                                 "Gly12 Arg (GGT>CGT)",
-                                 "Codon 12 mutation, not otherwise specified",
-                                 "Other codon 12 mutation (specify)",
-                                 "Codon 13",
-                                 "Gly13Asp (GGC>GAC)",
-                                 "Gly13Arg (GGC>CGC)",
-                                 "Gly13Cys (GGC>TGC)",
-                                 "Gly13Ala (GGC>GCC)",
-                                 "Gly13Val (GGC>GTC)",
-                                 "Codon 13 mutation, not otherwise specified",
-                                 "Other codon 13 mutation (specify)",
-                                 "Codon 61",
-                                 "Gln61Leu (CAA>CTA)",
-                                 "Gln61His (CAA>CAC)",
-                                 "Codon 61 mutation, not otherwise specified",
-                                 "Other codon 61 mutation (specify)",
-                                 "Codon 146",
-                                 "Ala146Thr (G436A) (GCA>ACA)",
-                                 "Codon 146 mutation, not otherwise specified",
-                                 "Other codon 146 mutation (specify)",
-                                 "Other codon (specify)"
-                              ]
-                           },
                            "Cannot be determined (explain)"
                         ]
                      }
                   ],
-                  "closedClass" : false,
                   "multiValue" : false,
-                  "field" : "KRAS CAP",
-                  "datatype" : "string"
+                  "datatype" : "string",
+                  "field" : "KRAS CAP"
                },
                {
                   "datatype" : "string",
-                  "closedClass" : true,
+                  "field" : "Subfield Mutation",
+                  "multiValue" : true,
+                  "closedClass" : false,
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : [
+                           "Codon 12",
+                           "Gly12Asp (GGT>GAT)",
+                           "Gly12Val (GGT>GTT)",
+                           "Gly12Cys (GGT>TGT)",
+                           "Gly12Ser (GGT>AGT)",
+                           "Gly12Ala (GGT>GCT)",
+                           "Gly12 Arg (GGT>CGT)",
+                           "Codon 12 mutation, not otherwise specified",
+                           "Other codon 12 mutation (specify)",
+                           "Codon 13",
+                           "Gly13Asp (GGC>GAC)",
+                           "Gly13Arg (GGC>CGC)",
+                           "Gly13Cys (GGC>TGC)",
+                           "Gly13Ala (GGC>GCC)",
+                           "Gly13Val (GGC>GTC)",
+                           "Codon 13 mutation, not otherwise specified",
+                           "Other codon 13 mutation (specify)",
+                           "Codon 61",
+                           "Gln61Leu (CAA>CTA)",
+                           "Gln61His (CAA>CAC)",
+                           "Codon 61 mutation, not otherwise specified",
+                           "Other codon 61 mutation (specify)",
+                           "Codon 146",
+                           "Ala146Thr (G436A) (GCA>ACA)",
+                           "Codon 146 mutation, not otherwise specified",
+                           "Other codon 146 mutation (specify)",
+                           "Other codon (specify)"
+                        ]
+                     }
+                  ],
+                  "listeners" : {
+                     "field" : "KRAS CAP",
+                     "handlers" : [
+                        {
+                           "failure" : "HIDE",
+                           "success" : "SHOW",
+                           "values" : [
+                              "Mutation identified"
+                           ]
+                        }
+                     ]
+                  },
+                  "hidden" : true
+               },
+               {
                   "diseaseProperties" : [
                      {
                         "values" : [
@@ -317,32 +337,33 @@
                         ]
                      }
                   ],
+                  "closedClass" : true,
+                  "datatype" : "string",
                   "field" : "MSI (Microsatellite Instability)",
                   "multiValue" : false
                },
                {
+                  "closedClass" : true,
                   "diseaseProperties" : [
                      {
-                        "diseaseGroup" : [
-                           "*"
-                        ],
                         "values" : [
                            "Intact, no loss of nuclear expression of MMR proteins",
                            "Loss of nuclear expression of one or more MMR proteins",
                            "Test ordered but pathology report does not contain test results"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
                         ]
                      }
                   ],
-                  "closedClass" : true,
                   "multiValue" : false,
-                  "field" : "MMR (Mismatch Repair)",
-                  "datatype" : "string"
+                  "datatype" : "string",
+                  "field" : "MMR (Mismatch Repair)"
                },
                {
+                  "multiValue" : false,
                   "datatype" : "string",
                   "field" : "Tumor Deposits",
-                  "multiValue" : false,
-                  "closedClass" : true,
                   "diseaseProperties" : [
                      {
                         "values" : [
@@ -353,38 +374,39 @@
                            "*"
                         ]
                      }
-                  ]
+                  ],
+                  "closedClass" : true
                },
                {
-                  "datatype" : "string",
-                  "field" : "Number of Tumor Deposits",
-                  "multiValue" : false,
-                  "closedClass" : false,
                   "diseaseProperties" : [
                      {
-                        "values" : [],
                         "diseaseGroup" : [
                            "*"
-                        ]
+                        ],
+                        "values" : []
                      }
-                  ]
+                  ],
+                  "closedClass" : false,
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Number of Tumor Deposits"
                },
                {
+                  "closedClass" : true,
                   "diseaseProperties" : [
                      {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
                         "values" : [
                            "Present, Positive",
                            "Absent, Negative"
-                        ],
-                        "diseaseGroup" : [
-                           "*"
                         ]
                      }
                   ],
-                  "closedClass" : true,
                   "multiValue" : false,
-                  "field" : "Perineural Invasion",
-                  "datatype" : "string"
+                  "datatype" : "string",
+                  "field" : "Perineural Invasion"
                }
             ],
             "table" : "Site-Specific Factors (SSF)/Site-Specific Data Item (SSDI)"
