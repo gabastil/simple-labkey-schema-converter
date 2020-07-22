@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-from converter import make_schema
-from sys import argv
+from converter import LabKeySchema
 from optparse import OptionParser
 
 if __name__ == "__main__":
-    optparser = OptionParser()
+    parser = OptionParser()
+    parser.add_option('-f', '--filename', dest='filename', default='resources/schema.txt')
 
-    filepath = "resources/template.txt"
+    (options, args) = parser.parse_args()
 
-    make_schema(filepath)
+    schema = LabKeySchema(options.filename)
+    print(schema.save())

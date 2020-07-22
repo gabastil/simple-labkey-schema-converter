@@ -4,11 +4,9 @@ from collections import OrderedDict
 from pathlib import Path
 import yaml
 import json
-import pprint
-
-pp = pprint.PrettyPrinter(indent=4)
 
 class Schema:
+    ''' Base class for Schema conversion '''
 
     def __init__(self, path=None):
         self.path = Path(path) if path is not None else path
@@ -26,10 +24,16 @@ class Schema:
 
         raise ValueError("Path to file to convert to schema not defined")
 
+
 class LabKeySchema(Schema):
 
     def __init__(self, path=None):
         super().__init__(path)
+
+    def __repr__(self):
+        ''' Pretty print the converted schema '''
+        schema = self.convert()
+        return json.dumps(schema, indent=4)
 
     def convert(self):
         ''' Convert a yaml-like schema to LabKey's json format '''
@@ -39,41 +43,55 @@ class LabKeySchema(Schema):
 
         for table_, fields_ in data.items():
             fields = self.parse(fields_)
-            table = {"table" : table_, "fields" : fields}
+            table = OrderedDict(table=table_, fields=fields)
             tables.append(table)
 
         groupings = [self._set_group("table"), self._set_group("field")]
-        return {"pathology": {"groupings": groupings, "tables": tables}}
+        pathology = OrderedDict(groupings=groupings, tables=tables)
+        return OrderedDict(pathology=pathology)
 
     def parse(self, fields):
         ''' Return a list of field values converted to LabKey's format '''
         parsed = []
 
         for field, values in fields.items():
+            if len(values) == 0:
+                values = [""]
             field_ = self._set_field(field, values)
             parsed.append(field_)
 
         return parsed
 
     def _set_field(self, name, values):
-        field = {'field' : name}
+        ''' Create a Field object (dict) for insertion into the schema
+
+        Parameters
+        ----------
+            name (str): field name
+            values (list): Class, datatype, multiValue, and field values
+        '''
+        field = OrderedDict(field=name)
 
         class_, multiple_, type_, *values_ = values
 
         if isinstance(class_, dict):
-            class_, listeners_, triggers_ = class_['Linked']
-            field['listeners'] = dict(field=listeners_, handlers=[{'values':triggers_, 'success' : 'SHOW', 'failure' : 'HIDE'}])
+            class_, fields_listened_, triggers_ = class_['Linked']
+
+            # How to handle the conditional field
+            handlers = OrderedDict(values=triggers_, success='SHOW', failure='HIDE')
+            listeners = OrderedDict(field=fields_listened_, handlers=[handlers])
+            field['listeners'] = [listeners]
             field['hidden'] = True
 
         field['datatype'] = 'date' if type_.lower() == 'date' else 'string'
         field['closedClass'] = True if class_.lower().startswith('c') else False
         field['multiValue'] = multiple_.lower().startswith('m')
-        field['diseaseProperties'] = [dict(diseaseGroup=['*'], values=values_)]
+        field['diseaseProperties'] = [OrderedDict(diseaseGroup=['*'], values=values_)]
 
         return field
 
     def _set_group(self, level, order="alpha", orientation="horizontal"):
-        return dict(level=level, order=order, orientation=orientation)
+        return OrderedDict(level=level, order=order, orientation=orientation)
 
     def save(self, path=None):
         ''' Convert and save a yaml-like schema to LabKey's format '''
@@ -81,10 +99,4 @@ class LabKeySchema(Schema):
         save_path = path.parent / f'{path.stem}.json'
 
         with open(save_path, 'w') as pout:
-            json.dump(self.convert(), pout)
-
-
-if __name__=="__main__":
-    print(LabKeySchema('resources/schema.txt').save())
-    # a, b, *c = Schema('resources/schema.txt').load()['Circumferential Resection Margin (CRM)']['Measurement Unit']
-    # print(a, b, c)
+            json.dump(self.convert(), pout, indent=4)
