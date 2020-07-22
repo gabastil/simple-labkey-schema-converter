@@ -279,8 +279,8 @@
                                         "values": [
                                             "Mutation identified"
                                         ],
-                                        "success": "SHOW",
-                                        "failure": "HIDE"
+                                        "success": "ENABLE",
+                                        "failure": "DISABLE"
                                     }
                                 ]
                             }
