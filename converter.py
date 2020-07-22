@@ -27,13 +27,14 @@ class Schema:
 
 class LabKeySchema(Schema):
 
-    def __init__(self, path=None):
+    def __init__(self, path=None, indent=4):
         super().__init__(path)
+        self.indent = indent
 
     def __repr__(self):
         ''' Pretty print the converted schema '''
         schema = self.convert()
-        return json.dumps(schema, indent=4)
+        return json.dumps(schema, indent=self.indent)
 
     def convert(self):
         ''' Convert a yaml-like schema to LabKey's json format '''
@@ -99,4 +100,4 @@ class LabKeySchema(Schema):
         save_path = path.parent / f'{path.stem}.json'
 
         with open(save_path, 'w') as pout:
-            json.dump(self.convert(), pout, indent=4)
+            json.dump(self.convert(), pout, indent=self.indent)
