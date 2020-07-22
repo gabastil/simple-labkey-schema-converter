@@ -5,8 +5,8 @@ Circumferential Resection Margin (CRM):
         - Involved, Positive, or +
         - Not Involved, Negative
         - Cannot Be Determined
-	    - Not Applicable (NA) or not assessed
-	    - CRM assessed in a speciment different from resection (not coded 27, 30-80)
+        - Not Applicable (NA) or not assessed
+        - CRM assessed in a speciment different from resection (not coded 27, 30-80)
     Measurement:
         - Open Class
         - Numeric
@@ -18,7 +18,7 @@ Circumferential Resection Margin (CRM):
         - Inches or in
     Procedure Date:
         - Open Class
-	    - Date
+        - Date
 Procedure Type (Surgery):
     Procedure:
         - Open Class
@@ -31,7 +31,7 @@ Procedure Type (Surgery):
         - Endoscopic Mucosal Resection
         - Sigmoidectomy
         - Other (Specify)
-Additional Margins
+Additional Margins:
     Proximal:
         - Closed Class
         - Text
@@ -86,37 +86,40 @@ Site-Specific Factors (SSF)/Site-Specific Data Item (SSDI):
         - Text
         - No mutation detected
         - Mutation identified
-        - Subfield Mutation:
-            - Multiple
-            - Text
-            - Codon 12
-            - Gly12Asp (GGT>GAT)
-            - Gly12Val (GGT>GTT)
-            - Gly12Cys (GGT>TGT)
-            - Gly12Ser (GGT>AGT)
-            - Gly12Ala (GGT>GCT)
-            - Gly12 Arg (GGT>CGT)
-            - Codon 12 mutation, not otherwise specified
-            - Other codon 12 mutation (specify)
-            - Codon 13
-            - Gly13Asp (GGC>GAC)
-            - Gly13Arg (GGC>CGC)
-            - Gly13Cys (GGC>TGC)
-            - Gly13Ala (GGC>GCC)
-            - Gly13Val (GGC>GTC)
-            - Codon 13 mutation, not otherwise specified
-            - Other codon 13 mutation (specify)
-            - Codon 61
-            - Gln61Leu (CAA>CTA)
-            - Gln61His (CAA>CAC)
-            - Codon 61 mutation, not otherwise specified
-            - Other codon 61 mutation (specify)
-            - Codon 146
-            - Ala146Thr (G436A) (GCA>ACA)
-            - Codon 146 mutation, not otherwise specified
-            - Other codon 146 mutation (specify)
-            - Other codon (specify)
         - Cannot be determined (explain)
+    Subfield Mutation:
+        - Multiple:
+            - Open Class
+            - Multiple
+            - KRAS CAP
+        - Text
+        - Codon 12
+        - Gly12Asp (GGT>GAT)
+        - Gly12Val (GGT>GTT)
+        - Gly12Cys (GGT>TGT)
+        - Gly12Ser (GGT>AGT)
+        - Gly12Ala (GGT>GCT)
+        - Gly12 Arg (GGT>CGT)
+        - Codon 12 mutation, not otherwise specified
+        - Other codon 12 mutation (specify)
+        - Codon 13
+        - Gly13Asp (GGC>GAC)
+        - Gly13Arg (GGC>CGC)
+        - Gly13Cys (GGC>TGC)
+        - Gly13Ala (GGC>GCC)
+        - Gly13Val (GGC>GTC)
+        - Codon 13 mutation, not otherwise specified
+        - Other codon 13 mutation (specify)
+        - Codon 61
+        - Gln61Leu (CAA>CTA)
+        - Gln61His (CAA>CAC)
+        - Codon 61 mutation, not otherwise specified
+        - Other codon 61 mutation (specify)
+        - Codon 146
+        - Ala146Thr (G436A) (GCA>ACA)
+        - Codon 146 mutation, not otherwise specified
+        - Other codon 146 mutation (specify)
+        - Other codon (specify)
     MSI (Microsatellite Instability):
         - Closed Class
         - Text

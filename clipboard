@@ -1,0 +1,788 @@
+{
+   "pathology" : {
+      "tables" : [
+         {
+            "fields" : [
+               {
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed",
+                           "CRM assessed in a speciment different from resection (not coded 27, 30-80)"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "field" : "CRM Presence & Status",
+                  "multiValue" : false,
+                  "datatype" : "string"
+               },
+               {
+                  "datatype" : "string",
+                  "multiValue" : false,
+                  "field" : "Measurement",
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : []
+                     }
+                  ],
+                  "closedClass" : false
+               },
+               {
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Millimeters or mm",
+                           "Centimeters or cm",
+                           "Inches or in"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : true,
+                  "datatype" : "string",
+                  "multiValue" : false,
+                  "field" : "Measurement Unit"
+               },
+               {
+                  "field" : "Procedure Date",
+                  "multiValue" : false,
+                  "datatype" : "date",
+                  "closedClass" : false,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ]
+               }
+            ],
+            "table" : "Circumferential Resection Margin (CRM)"
+         },
+         {
+            "fields" : [
+               {
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Local Excision (Transanal Disk Excision)",
+                           "Excisional Biopsy (Polypectomy)",
+                           "Rectal Resection",
+                           "Abdominoperineal Resection",
+                           "Low Abdominal Resection",
+                           "Endoscopic Mucosal Resection",
+                           "Sigmoidectomy",
+                           "Other (Specify)"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : false,
+                  "field" : "Procedure",
+                  "datatype" : "string",
+                  "multiValue" : false
+               }
+            ],
+            "table" : "Procedure Type (Surgery)"
+         },
+         {
+            "fields" : [
+               {
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Proximal"
+               },
+               {
+                  "field" : "Distal",
+                  "datatype" : "string",
+                  "multiValue" : false,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : true
+               },
+               {
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Mucosal"
+               },
+               {
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Deep (Stalk) Margins",
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ]
+               },
+               {
+                  "closedClass" : false,
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : []
+                     }
+                  ],
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Other Margin"
+               },
+               {
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Other Margin Status",
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ]
+                     }
+                  ]
+               }
+            ],
+            "table" : "Additional Margins"
+         },
+         {
+            "table" : "Site-Specific Factors (SSF)/Site-Specific Data Item (SSDI)",
+            "fields" : [
+               {
+                  "field" : "KRAS",
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Normal",
+                           "Abnormal",
+                           "Abnormal (Codon mutated is 12,13,or 61)",
+                           "Abnormal (Codon mutated is 146 only)",
+                           "Abnormal (Codon mutated is not in 12,13,61, or 146)",
+                           "Abnormal (Codon mutated but not specified)",
+                           "Test ordered but pathology report does not contain test results"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ]
+               },
+               {
+                  "datatype" : "string",
+                  "multiValue" : false,
+                  "field" : "KRAS CAP",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "No mutation detected",
+                           "Mutation identified",
+                           {
+                              "Subfield Mutation" : [
+                                 "Multiple",
+                                 "Text",
+                                 "Codon 12",
+                                 "Gly12Asp (GGT>GAT)",
+                                 "Gly12Val (GGT>GTT)",
+                                 "Gly12Cys (GGT>TGT)",
+                                 "Gly12Ser (GGT>AGT)",
+                                 "Gly12Ala (GGT>GCT)",
+                                 "Gly12 Arg (GGT>CGT)",
+                                 "Codon 12 mutation, not otherwise specified",
+                                 "Other codon 12 mutation (specify)",
+                                 "Codon 13",
+                                 "Gly13Asp (GGC>GAC)",
+                                 "Gly13Arg (GGC>CGC)",
+                                 "Gly13Cys (GGC>TGC)",
+                                 "Gly13Ala (GGC>GCC)",
+                                 "Gly13Val (GGC>GTC)",
+                                 "Codon 13 mutation, not otherwise specified",
+                                 "Other codon 13 mutation (specify)",
+                                 "Codon 61",
+                                 "Gln61Leu (CAA>CTA)",
+                                 "Gln61His (CAA>CAC)",
+                                 "Codon 61 mutation, not otherwise specified",
+                                 "Other codon 61 mutation (specify)",
+                                 "Codon 146",
+                                 "Ala146Thr (G436A) (GCA>ACA)",
+                                 "Codon 146 mutation, not otherwise specified",
+                                 "Other codon 146 mutation (specify)",
+                                 "Other codon (specify)"
+                              ]
+                           },
+                           "Cannot be determined (explain)"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : false
+               },
+               {
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "MSI (Microsatellite Instability)",
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : [
+                           "Stable MSS",
+                           "Unstable MSI-Low",
+                           "Unstable MSI-High",
+                           "Test ordered but pathology report does not contain test results"
+                        ]
+                     }
+                  ]
+               },
+               {
+                  "datatype" : "string",
+                  "multiValue" : false,
+                  "field" : "MMR (Mismatch Repair)",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Intact, no loss of nuclear expression of MMR proteins",
+                           "Loss of nuclear expression of one or more MMR proteins",
+                           "Test ordered but pathology report does not contain test results"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : true
+               },
+               {
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Tumor deposits negative, absent",
+                           "Tumor deposits positive, present"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : true,
+                  "datatype" : "string",
+                  "multiValue" : false,
+                  "field" : "Tumor Deposits"
+               },
+               {
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "field" : "Number of Tumor Deposits",
+                  "closedClass" : false,
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : []
+                     }
+                  ]
+               },
+               {
+                  "field" : "Perineural Invasion",
+                  "multiValue" : false,
+                  "datatype" : "string",
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : [
+                           "Present, Positive",
+                           "Absent, Negative"
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ],
+      "groupings" : [
+         {
+            "orientation" : "horizontal",
+            "level" : "table",
+            "order" : "alpha"
+         },
+         {
+            "orientation" : "horizontal",
+            "level" : "field",
+            "order" : "alpha"
+         }
+      ]
+   }
+}
+{
+   "pathology" : {
+      "groupings" : [
+         {
+            "level" : "table",
+            "order" : "alpha",
+            "orientation" : "horizontal"
+         },
+         {
+            "orientation" : "horizontal",
+            "level" : "field",
+            "order" : "alpha"
+         }
+      ],
+      "tables" : [
+         {
+            "fields" : [
+               {
+                  "field" : "CRM Presence & Status",
+                  "multiValue" : false,
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed",
+                           "CRM assessed in a speciment different from resection (not coded 27, 30-80)"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string"
+               },
+               {
+                  "multiValue" : false,
+                  "field" : "Measurement",
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : []
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : false
+               },
+               {
+                  "multiValue" : false,
+                  "field" : "Measurement Unit",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Millimeters or mm",
+                           "Centimeters or cm",
+                           "Inches or in"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : true
+               },
+               {
+                  "field" : "Procedure Date",
+                  "multiValue" : false,
+                  "closedClass" : false,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "date"
+               }
+            ],
+            "table" : "Circumferential Resection Margin (CRM)"
+         },
+         {
+            "fields" : [
+               {
+                  "multiValue" : false,
+                  "field" : "Procedure",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Local Excision (Transanal Disk Excision)",
+                           "Excisional Biopsy (Polypectomy)",
+                           "Rectal Resection",
+                           "Abdominoperineal Resection",
+                           "Low Abdominal Resection",
+                           "Endoscopic Mucosal Resection",
+                           "Sigmoidectomy",
+                           "Other (Specify)"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : false
+               }
+            ],
+            "table" : "Procedure Type (Surgery)"
+         },
+         {
+            "fields" : [
+               {
+                  "multiValue" : false,
+                  "field" : "Proximal",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : true
+               },
+               {
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : true,
+                  "multiValue" : false,
+                  "field" : "Distal"
+               },
+               {
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : true,
+                  "multiValue" : false,
+                  "field" : "Mucosal"
+               },
+               {
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "field" : "Deep (Stalk) Margins",
+                  "multiValue" : false
+               },
+               {
+                  "closedClass" : false,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "field" : "Other Margin",
+                  "multiValue" : false
+               },
+               {
+                  "datatype" : "string",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Involved, Positive, or +",
+                           "Not Involved, Negative, or –",
+                           "Cannot Be Determined",
+                           "Not Applicable (NA) or not assessed"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : true,
+                  "multiValue" : false,
+                  "field" : "Other Margin Status"
+               }
+            ],
+            "table" : "Additional Margins"
+         },
+         {
+            "fields" : [
+               {
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Normal",
+                           "Abnormal",
+                           "Abnormal (Codon mutated is 12,13,or 61)",
+                           "Abnormal (Codon mutated is 146 only)",
+                           "Abnormal (Codon mutated is not in 12,13,61, or 146)",
+                           "Abnormal (Codon mutated but not specified)",
+                           "Test ordered but pathology report does not contain test results"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "field" : "KRAS",
+                  "multiValue" : false
+               },
+               {
+                  "datatype" : "string",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "No mutation detected",
+                           "Mutation identified",
+                           {
+                              "Subfield Mutation" : [
+                                 "Multiple",
+                                 "Text",
+                                 "Codon 12",
+                                 "Gly12Asp (GGT>GAT)",
+                                 "Gly12Val (GGT>GTT)",
+                                 "Gly12Cys (GGT>TGT)",
+                                 "Gly12Ser (GGT>AGT)",
+                                 "Gly12Ala (GGT>GCT)",
+                                 "Gly12 Arg (GGT>CGT)",
+                                 "Codon 12 mutation, not otherwise specified",
+                                 "Other codon 12 mutation (specify)",
+                                 "Codon 13",
+                                 "Gly13Asp (GGC>GAC)",
+                                 "Gly13Arg (GGC>CGC)",
+                                 "Gly13Cys (GGC>TGC)",
+                                 "Gly13Ala (GGC>GCC)",
+                                 "Gly13Val (GGC>GTC)",
+                                 "Codon 13 mutation, not otherwise specified",
+                                 "Other codon 13 mutation (specify)",
+                                 "Codon 61",
+                                 "Gln61Leu (CAA>CTA)",
+                                 "Gln61His (CAA>CAC)",
+                                 "Codon 61 mutation, not otherwise specified",
+                                 "Other codon 61 mutation (specify)",
+                                 "Codon 146",
+                                 "Ala146Thr (G436A) (GCA>ACA)",
+                                 "Codon 146 mutation, not otherwise specified",
+                                 "Other codon 146 mutation (specify)",
+                                 "Other codon (specify)"
+                              ]
+                           },
+                           "Cannot be determined (explain)"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : false,
+                  "multiValue" : false,
+                  "field" : "KRAS CAP"
+               },
+               {
+                  "closedClass" : true,
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Stable MSS",
+                           "Unstable MSI-Low",
+                           "Unstable MSI-High",
+                           "Test ordered but pathology report does not contain test results"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "field" : "MSI (Microsatellite Instability)",
+                  "multiValue" : false
+               },
+               {
+                  "multiValue" : false,
+                  "field" : "MMR (Mismatch Repair)",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Intact, no loss of nuclear expression of MMR proteins",
+                           "Loss of nuclear expression of one or more MMR proteins",
+                           "Test ordered but pathology report does not contain test results"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : true
+               },
+               {
+                  "multiValue" : false,
+                  "field" : "Tumor Deposits",
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : [
+                           "Tumor deposits negative, absent",
+                           "Tumor deposits positive, present"
+                        ]
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : true
+               },
+               {
+                  "multiValue" : false,
+                  "field" : "Number of Tumor Deposits",
+                  "diseaseProperties" : [
+                     {
+                        "diseaseGroup" : [
+                           "*"
+                        ],
+                        "values" : []
+                     }
+                  ],
+                  "datatype" : "string",
+                  "closedClass" : false
+               },
+               {
+                  "datatype" : "string",
+                  "diseaseProperties" : [
+                     {
+                        "values" : [
+                           "Present, Positive",
+                           "Absent, Negative"
+                        ],
+                        "diseaseGroup" : [
+                           "*"
+                        ]
+                     }
+                  ],
+                  "closedClass" : true,
+                  "multiValue" : false,
+                  "field" : "Perineural Invasion"
+               }
+            ],
+            "table" : "Site-Specific Factors (SSF)/Site-Specific Data Item (SSDI)"
+         }
+      ]
+   }
+}
