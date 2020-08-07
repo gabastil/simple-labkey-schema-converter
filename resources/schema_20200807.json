@@ -28,10 +28,10 @@
                                 ],
                                 "values": [
                                     "Involved, Positive, or +",
-                                    "Not Involved, Negative",
+                                    "Not Involved, Negative, or -",
                                     "Cannot Be Determined",
                                     "Not Applicable (NA) or not assessed",
-                                    "CRM assessed in a speciment different from resection (not coded 27, 30-80)"
+                                    "CRM assessed in a specimen different from resection (not coded 27, 30-80)"
                                 ]
                             }
                         ]
@@ -254,7 +254,7 @@
                     {
                         "field": "KRAS CAP",
                         "datatype": "string",
-                        "closedClass": false,
+                        "closedClass": true,
                         "multiValue": false,
                         "diseaseProperties": [
                             {
@@ -262,9 +262,8 @@
                                     "*"
                                 ],
                                 "values": [
-                                    "No mutation detected",
-                                    "Mutation identified",
-                                    "Cannot be determined (explain)"
+                                    true,
+                                    false
                                 ]
                             }
                         ]
@@ -277,7 +276,7 @@
                                 "handlers": [
                                     {
                                         "values": [
-                                            "Mutation identified"
+                                            true
                                         ],
                                         "success": "SHOW",
                                         "failure": "HIDE"
@@ -301,7 +300,7 @@
                                     "Gly12Cys (GGT>TGT)",
                                     "Gly12Ser (GGT>AGT)",
                                     "Gly12Ala (GGT>GCT)",
-                                    "Gly12 Arg (GGT>CGT)",
+                                    "Gly12Arg (GGT>CGT)",
                                     "Codon 12 mutation, not otherwise specified",
                                     "Other codon 12 mutation (specify)",
                                     "Codon 13",
