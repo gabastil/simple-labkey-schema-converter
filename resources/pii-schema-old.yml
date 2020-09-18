@@ -1,0 +1,67 @@
+PII Annotation:
+
+  # People
+
+  Patient:
+    Last Name: [Open Class, Single, Text]
+    First Name: [Open Class, Single, Text]
+    Other Name: [Open Class, Single, Text]
+
+  Provider:
+    Last Name: [Open Class, Single, Text]
+    First Name: [Open Class, Single, Text]
+    Other Name: [Open Class, Single, Text]
+
+  Patient Relative 1:
+    Last Name: [Open Class, Single, Text]
+    First Name: [Open Class, Single, Text]
+    Other Name: [Open Class, Single, Text]
+
+  Patient Relative 2:
+    Last Name: [Open Class, Single, Text]
+    First Name: [Open Class, Single, Text]
+    Other Name: [Open Class, Single, Text]
+
+  Patient Relative 3:
+    Last Name: [Open Class, Single, Text]
+    First Name: [Open Class, Single, Text]
+    Other Name: [Open Class, Single, Text]
+
+  # Organizations and Addresses
+
+  Organization:
+    Name: [Open Class, Single, Text]
+    Unit: [Open Class, Single, Text]
+
+  Patient Address:
+    Street Address: [Open Class, Single, Text]
+    City: [Open Class, Single, Text]
+    Postal Code: [Open Class, Single, Text]
+    State: [Open Class, Single, Text, AL (Alabama), AK (Alaska), AZ (Arizona), AR (Arkansas), CA (California), CO (Colorado), CT (Connecticut), DC (District of Columbia), DE (Delaware), FL (Florida), GA (Georgia), HI (Hawaii), ID (Idaho), IL (Illinois), IN (Indiana), IA (Iowa), KS (Kansas), KY (Kentucky), LA (Louisiana), ME (Maine), MD (Maryland), MA (Massachusetts), MI (Michigan), MN (Minnesota), MS (Mississippi), MO (Missouri), MT (Montana), NE (Nebraska), NV (Nevada), NH (New Hampshire), NJ (New Jersey), NM (New Mexico), NY (New York), NC (North Carolina), ND (North Dakota), OH (Ohio), OK (Oklahoma), OR (Oregon), PA (Pennsylvania), RI (Rhode Island), SC (South Carolina), SD (South Dakota), TN (Tennessee), TX (Texas), UT (Utah), VT (Vermont), VA (Virginia), WA (Washington), WV (West Virginia), WI (Wisconsin), WY (Wyoming), AS (American Samoa), GU (Guam), MP (Northern Mariana Islands), PR (Puerto Rico), VI (U.S. Virgin Islands)]
+
+  Provider Address:
+    Street Address: [Open Class, Single, Text]
+    City: [Open Class, Single, Text]
+    Postal Code: [Open Class, Single, Text]
+    State: [Open Class, Single, Text, AL (Alabama), AK (Alaska), AZ (Arizona), AR (Arkansas), CA (California), CO (Colorado), CT (Connecticut), DC (District of Columbia), DE (Delaware), FL (Florida), GA (Georgia), HI (Hawaii), ID (Idaho), IL (Illinois), IN (Indiana), IA (Iowa), KS (Kansas), KY (Kentucky), LA (Louisiana), ME (Maine), MD (Maryland), MA (Massachusetts), MI (Michigan), MN (Minnesota), MS (Mississippi), MO (Missouri), MT (Montana), NE (Nebraska), NV (Nevada), NH (New Hampshire), NJ (New Jersey), NM (New Mexico), NY (New York), NC (North Carolina), ND (North Dakota), OH (Ohio), OK (Oklahoma), OR (Oregon), PA (Pennsylvania), RI (Rhode Island), SC (South Carolina), SD (South Dakota), TN (Tennessee), TX (Texas), UT (Utah), VT (Vermont), VA (Virginia), WA (Washington), WV (West Virginia), WI (Wisconsin), WY (Wyoming), AS (American Samoa), GU (Guam), MP (Northern Mariana Islands), PR (Puerto Rico), VI (U.S. Virgin Islands)]
+
+  # Identifiers and Demographics
+
+  Identifiers:
+    Telecommunications Identifier: [Open Class, Single, Text]
+    SSN: [Open Class, Single, Text]
+    Other HIPAA Alphanumeric Identifier: [Open Class, Single, Text]
+    Other Alphanumeric Identifier: [Open Class, Single, Text]
+
+  Demographics:
+    Race: [Open Class, Single, Text]
+    Ethnicity: [Open Class, Single, Text]
+    Height: [Open Class, Single, Text]
+    Weight: [Open Class, Single, Text]
+    BMI: [Open Class, Single, Number]
+    Date of Birth: [Closed Class, Single, Date]
+    Date of Death: [Closed Class, Single, Date]
+    Other Date: [Closed Class, Single, Date]
+    Marital Status: [Open Class, Single, Text]
+    Age: [Open Class, Single, Numeric]
+    Miscellaneous: [Open Class, Single, Text]

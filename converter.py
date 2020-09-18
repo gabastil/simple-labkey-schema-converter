@@ -9,10 +9,11 @@ class Schema:
     ''' Base class for Schema conversion '''
 
     def __init__(self, path=None):
+        ''' Assign path to YAML file to convert to JSON to path property '''
         self.path = Path(path) if path is not None else path
 
     def _path(self, path=None):
-        return self.path if path is None else Path(path)
+        return Path(path) if path is not None else self.path
 
     def load(self, path=None):
         ''' Return a dict from a yaml-structured schema file '''
@@ -22,7 +23,7 @@ class Schema:
             with open(path) as data:
                 return yaml.load(data, yaml.Loader)
 
-        raise ValueError("Path to file to convert to schema not defined")
+        raise ValueError("Path to file to convert not defined")
 
 
 class LabKeySchema(Schema):

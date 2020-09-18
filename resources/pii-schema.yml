@@ -1,0 +1,69 @@
+# PII Annotation Schema
+# Glenn Abastillas
+# Pre-JSON YAML file with fields and values
+
+# People
+
+Patient Name:
+  Last Name: [Closed Class, Single, Text, Present, Absent]
+  First Name: [Closed Class, Single, Text, Present, Absent]
+  Other Name: [Closed Class, Single, Text, Present, Absent]
+
+Provider Name:
+  Last Name: [Closed Class, Single, Text, Present, Absent]
+  First Name: [Closed Class, Single, Text, Present, Absent]
+  Other Name: [Closed Class, Single, Text, Present, Absent]
+
+Patient Relative 1 (If Applicable):
+  Last Name: [Closed Class, Single, Text, Present, Absent]
+  First Name: [Closed Class, Single, Text, Present, Absent]
+  # Other Name: [Closed Class, Single, Text, Present, Absent]
+
+Patient Relative 2 (If Applicable):
+  Last Name: [Closed Class, Single, Text, Present, Absent]
+  First Name: [Closed Class, Single, Text, Present, Absent]
+  # Other Name: [Closed Class, Single, Text, Present, Absent]
+
+Patient Relative 3 (If Applicable):
+  Last Name: [Closed Class, Single, Text, Present, Absent]
+  First Name: [Closed Class, Single, Text, Present, Absent]
+  # Other Name: [Closed Class, Single, Text, Present, Absent]
+
+# Organizations and Addresses
+
+Organization:
+  Name: [Closed Class, Single, Text, Present, Absent]
+  Unit: [Closed Class, Single, Text, Present, Absent]
+
+Patient Address:
+  Street Address: [Closed Class, Single, Text, Present, Absent]
+  City: [Closed Class, Single, Text, Present, Absent]
+  Postal Code: [Closed Class, Single, Text, Present, Absent]
+  State: [Closed Class, Single, Text, Present, Absent]
+
+Provider Address:
+  Street Address: [Closed Class, Single, Text, Present, Absent]
+  City: [Closed Class, Single, Text, Present, Absent]
+  Postal Code: [Closed Class, Single, Text, Present, Absent]
+  State: [Closed Class, Single, Text, Present, Absent]
+
+# Identifiers and Demographics
+
+Identifiers:
+  Telecommunications Identifier: [Closed Class, Single, Text, Present, Absent]
+  SSN: [Closed Class, Single, Text, Present, Absent]
+  Other HIPAA Alphanumeric Identifier: [Closed Class, Single, Text, Present, Absent]
+  Other Alphanumeric Identifier: [Closed Class, Single, Text, Present, Absent]
+
+Demographics:
+  Race: [Closed Class, Single, Text, Present, Absent]
+  Ethnicity: [Closed Class, Single, Text, Present, Absent]
+  Height: [Closed Class, Single, Text, Present, Absent]
+  Weight: [Closed Class, Single, Text, Present, Absent]
+  BMI: [Closed Class, Single, Number]
+  Date of Birth: [Closed Class, Single, Text, Present, Absent]
+  Date of Death: [Closed Class, Single, Text, Present, Absent]
+  Other Date: [Closed Class, Single, Text, Present, Absent]
+  Marital Status: [Closed Class, Single, Text, Present, Absent]
+  Age: [Closed Class, Single, Text, Present, Absent]
+  Miscellaneous: [Closed Class, Single, Text, Present, Absent]

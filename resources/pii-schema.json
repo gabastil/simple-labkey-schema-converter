@@ -1,0 +1,694 @@
+{
+    "pathology": {
+        "groupings": [
+            {
+                "level": "table",
+                "order": "alpha",
+                "orientation": "horizontal"
+            },
+            {
+                "level": "field",
+                "order": "alpha",
+                "orientation": "horizontal"
+            }
+        ],
+        "tables": [
+            {
+                "table": "Patient Name",
+                "fields": [
+                    {
+                        "field": "Last Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "First Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Other Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Provider Name",
+                "fields": [
+                    {
+                        "field": "Last Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "First Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Other Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Patient Relative 1 (If Applicable)",
+                "fields": [
+                    {
+                        "field": "Last Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "First Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Patient Relative 2 (If Applicable)",
+                "fields": [
+                    {
+                        "field": "Last Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "First Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Patient Relative 3 (If Applicable)",
+                "fields": [
+                    {
+                        "field": "Last Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "First Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Organization",
+                "fields": [
+                    {
+                        "field": "Name",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Unit",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Patient Address",
+                "fields": [
+                    {
+                        "field": "Street Address",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "City",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Postal Code",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "State",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Provider Address",
+                "fields": [
+                    {
+                        "field": "Street Address",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "City",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Postal Code",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "State",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Identifiers",
+                "fields": [
+                    {
+                        "field": "Telecommunications Identifier",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "SSN",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Other HIPAA Alphanumeric Identifier",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Other Alphanumeric Identifier",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "table": "Demographics",
+                "fields": [
+                    {
+                        "field": "Race",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Ethnicity",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Height",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Weight",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "BMI",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": []
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Date of Birth",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Date of Death",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Other Date",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Marital Status",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Age",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "field": "Miscellaneous",
+                        "datatype": "string",
+                        "closedClass": true,
+                        "multiValue": false,
+                        "diseaseProperties": [
+                            {
+                                "diseaseGroup": [
+                                    "*"
+                                ],
+                                "values": [
+                                    "Present",
+                                    "Absent"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

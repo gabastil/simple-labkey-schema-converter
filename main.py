@@ -12,4 +12,4 @@ if __name__ == "__main__":
     print(f'Converting schema at {options.filename}')
 
     schema = LabKeySchema(options.filename)
-    print(schema.save())
+    schema.save()
