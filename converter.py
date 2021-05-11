@@ -6,17 +6,35 @@ import yaml
 import json
 
 class Schema:
-    ''' Base class for Schema conversion '''
+    ''' Base class for Schema conversion. '''
 
     def __init__(self, path=None):
         ''' Assign path to YAML file to convert to JSON to path property '''
         self.path = Path(path) if path is not None else path
 
     def _path(self, path=None):
+        ''' Return the correct path to use for the schema
+
+        Args:
+            path (str, optional): Path to return if present. Defaults to None.
+
+        Returns:
+            pathlib.Path: User input path as a Path object. None if none specified.
+        '''
         return Path(path) if path is not None else self.path
 
     def load(self, path=None):
-        ''' Return a dict from a yaml-structured schema file '''
+        ''' Retrun a dict from a yaml-structure schema file
+
+        Args:
+            path (str, optional): Path to yml file. Defaults to None.
+
+        Raises:
+            ValueError: Raised if no path specified in function or class
+
+        Returns:
+            dict: dictionary object with yaml file contents
+        '''
         path = self._path(path)
 
         if path:
@@ -69,21 +87,55 @@ class LabKeySchema(Schema):
 
         return parsed
 
-    def _set_data_type(self, type_):
+    def _set_data(self, type_='string'):
+        ''' Return the correct data type based on user input.
+
+        Args:
+            type_ (str): date, string, number. Default is 'string'.
+
+        Returns:
+            string: Assigned data type per LabKey schema specifications.
+
+        Reference:
+            https://www.labkey.org/Documentation/wiki-page.view?name=metadataJson
+        '''
         if type_.lower() == 'date':
             return 'date'
         return 'string'
 
-    def _set_class_type(self, class_):
+    def _set_class(self, class_):
+        ''' Return boolean for correct class type based on user input.
+
+        Args:
+            class_ (str): Closed or open class
+
+        Returns:
+            bool: True if closed class, False if open class per LabKey schema
+            specifications.
+
+        Reference:
+            https://www.labkey.org/Documentation/wiki-page.view?name=metadataJson
+        '''
         if class_.lower().startswith('c'):
             return True
         return False
 
-    def _set_selection_type(self, selection):
+    def _set_selection(self, selection):
+        ''' Return a boolean for correct selection type based on user input.
+
+        Args:
+            selection (str): Single or multiple
+
+        Returns:
+            bool: True if multiValue indicated, False if single.
+
+        Reference:
+            https://www.labkey.org/Documentation/wiki-page.view?name=metadataJson
+        '''
         return selection.lower().startswith('mu')
 
     def _set_field(self, name, values):
-        ''' Create a Field object (dict) for insertion into the schema
+        ''' Create a Field object (dict) for insertion into the schema.
 
         Parameters
         ----------
@@ -103,9 +155,9 @@ class LabKeySchema(Schema):
             field['listeners'] = [listeners]
             field['hidden'] = True
 
-        field['datatype'] = self._set_data_type(type_)
-        field['closedClass'] = self._set_class_type(class_)
-        field['multiValue'] = self._set_selection_type(selection_)
+        field['datatype'] = self._set_data(type_)
+        field['closedClass'] = self._set_class(class_)
+        field['multiValue'] = self._set_selection(selection_)
         field['diseaseProperties'] = [OrderedDict(diseaseGroup=['*'], values=values_)]
 
         return field
