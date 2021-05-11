@@ -43,9 +43,13 @@ class LabKeySchema(Schema):
 
         tables = []
 
-        for table_, fields_ in data.items():
-            fields = self.parse(fields_)
-            table = OrderedDict(table=table_, fields=fields)
+        for table_name, fields in data.items():
+
+            # TODO: Account for nested tables
+            if isinstance(fields, dict):
+                fields = self.parse(fields)
+
+            table = OrderedDict(table=table_name, fields=fields)
             tables.append(table)
 
         groupings = [self._set_group("table"), self._set_group("field")]
@@ -56,13 +60,27 @@ class LabKeySchema(Schema):
         ''' Return a list of field values converted to LabKey's format '''
         parsed = []
 
-        for field, values in fields.items():
-            if len(values) == 0:
-                values = [""]
-            field_ = self._set_field(field, values)
-            parsed.append(field_)
+        if fields:
+            for field, values in fields.items():
+                if len(values) == 0:
+                    values = [""]
+                field_ = self._set_field(field, values)
+                parsed.append(field_)
 
         return parsed
+
+    def _set_data_type(self, type_):
+        if type_.lower() == 'date':
+            return 'date'
+        return 'string'
+
+    def _set_class_type(self, class_):
+        if class_.lower().startswith('c'):
+            return True
+        return False
+
+    def _set_selection_type(self, selection):
+        return selection.lower().startswith('mu')
 
     def _set_field(self, name, values):
         ''' Create a Field object (dict) for insertion into the schema
@@ -74,7 +92,7 @@ class LabKeySchema(Schema):
         '''
         field = OrderedDict(field=name)
 
-        class_, multiple_, type_, *values_ = values
+        class_, selection_, type_, *values_ = values
 
         if isinstance(class_, dict):
             class_, fields_listened_, triggers_ = class_['Linked']
@@ -85,9 +103,9 @@ class LabKeySchema(Schema):
             field['listeners'] = [listeners]
             field['hidden'] = True
 
-        field['datatype'] = 'date' if type_.lower() == 'date' else 'string'
-        field['closedClass'] = True if class_.lower().startswith('c') else False
-        field['multiValue'] = multiple_.lower().startswith('m')
+        field['datatype'] = self._set_data_type(type_)
+        field['closedClass'] = self._set_class_type(class_)
+        field['multiValue'] = self._set_selection_type(selection_)
         field['diseaseProperties'] = [OrderedDict(diseaseGroup=['*'], values=values_)]
 
         return field
