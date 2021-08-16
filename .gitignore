@@ -1,4 +1,10 @@
 .vscode/
-__pycache__/
+__*/
 
 *.pyc
+*.y?ml
+*json
+
+# Ignore output and resources
+resources/
+output/
