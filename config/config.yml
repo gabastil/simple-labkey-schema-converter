@@ -1,0 +1,82 @@
+version: 1.0.0
+args:
+  input: ./resources/biomarkers/biomarker-colorectal-schema.yml
+  output: ./output/biomarkers/biomarker-colorectal-schema.json
+
+converter:
+  LabKeySchemaNested:
+    defaults:
+      control_info: &LabKeySchemaNested
+        - disease_group
+        - doc_date
+        - doc_name
+        - doc_type
+        - doc_version
+        - engine_version
+        - process_date
+        - reference_id
+        - source
+        - metadata
+
+# Flags and default values for use with the CLI tool
+cli:
+  - flags: [--filename]
+    kwargs:
+      dest: filename
+      default: biomarker-colorectal-schema.yml
+      help: YAML file to convert into JSON
+  - flags: [--output]
+    kwargs:
+      dest: output
+      help: Name of output file
+  - flags: [--default-source-dir]
+    kwargs:
+      dest: source_dir
+      default: resources/biomarkers
+      help: Source folder with YAML files to convert into JSON
+  - flags: [--default-output-dir]
+    kwargs:
+      dest: output_dir
+      default: output
+      help: Target folder to save JSON files converted from YAML
+  - flags: [--disease-group]
+    kwargs:
+      dest: disease_group
+      default: "*"
+      help: Pathology disease group to assign schema
+  - flags: [--docDate]
+    kwargs:
+      dest: doc_date
+      default: null
+      help: Schema document creation date
+  - flags: [--docName]
+    kwargs:
+      dest: doc_name
+      default: null
+      help: Schema document name
+  - flags: [--docType]
+    kwargs:
+      dest: doc_type
+      default: pathology
+      help: Schema document type
+  - flags: [--engineVersion]
+    kwargs:
+      dest: engine_version
+      default: histologyMismatchAndAnnotation
+      help: Name of NLP engine to assign. Currently does nothing.
+  - flags: [--processDate]
+    kwargs:
+      dest: process_date
+      default: null
+      help: Date reports were processed
+  - flags: [--referenceId]
+    kwargs:
+      dest: reference_id
+      default: null
+      help: Report reference ID
+  - flags: [--default-control-info-fields]
+    kwargs:
+      dest: control_info_fields
+      default: *LabKeySchemaNested
+      help: Default fields to read from control info template. AVOID CHANGING.
+
