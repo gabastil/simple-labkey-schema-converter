@@ -7,5 +7,6 @@ __*/
 *json
 
 # Ignore output and resources
-resources/
-output/
+data/dataset/
+data/resources/
+data/output/
