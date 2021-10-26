@@ -184,7 +184,3 @@ class LabKeySchema(Schema):
 
         with open(save_path, 'w') as pout:
             json.dump(self.convert(), pout, indent=self.indent)
-
-
-if __name__ == "__main__":
-    pass
