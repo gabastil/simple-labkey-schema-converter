@@ -10,8 +10,7 @@ import json
 class Schema:
     """ Base class for Schema conversion. """
 
-    def __init__(self, path=None):
-        """ Assign path to YAML file to convert to JSON to path property """
+    def __init__(self, path: str = None):
         self.path = Path(path) if path is not None else path
 
     def _path(self, path: str = None) -> Path:
@@ -28,6 +27,10 @@ class Schema:
 
 
 class LabKeySchema(Schema):
+    """ YAML to JSON schema converter for LabKey annotation. The JSON schema is
+    based on the LabKey documentation online at
+    - https://www.labkey.org/Documentation/wiki-page.view?name=metadataJson
+    """
 
     def __init__(self, path: str = None, indent: int = 4, options: dict = None):
         super().__init__(path)
@@ -53,7 +56,7 @@ class LabKeySchema(Schema):
         groupings = [
             self._set_group("table"),
             self._set_group("field"),
-            self._set_group("recordKey")  # To enable nested specimen tables
+            self._set_group("recordKey")  # NOTE: Enable nested specimen tables
         ]
 
         pathology = OrderedDict(groupings=groupings, tables=tables)
@@ -78,83 +81,52 @@ class LabKeySchema(Schema):
         class_, selection_, type_, *values_ = values
 
         if isinstance(class_, dict):
-            class_, fields_listened_, triggers_ = class_['Linked']
+            class_, fields_listened_, triggers_ = class_["Linked"]
 
             # NOTE: Conditional field handling
             handlers = OrderedDict(
                 values=triggers_,
-                success='SHOW',
-                failure='HIDE'
+                success="SHOW",
+                failure="HIDE"
             )
             listeners = OrderedDict(
                 field=fields_listened_,
                 handlers=[handlers]
             )
-            field['listeners'] = [listeners]
-            field['hidden'] = True
+            field["listeners"] = [listeners]
+            field["hidden"] = True
 
-        field['datatype'] = self._set_data(type_)
-        field['closedClass'] = self._set_class(class_)
-        field['multiValue'] = self._set_selection(selection_)
-        field['diseaseProperties'] = [
-            OrderedDict(diseaseGroup=['*'], values=values_)]
+        field["datatype"] = self._set_data(type_)
+        field["closedClass"] = self._set_class(class_)
+        field["multiValue"] = self._set_selection(selection_)
+        field["diseaseProperties"] = [
+            OrderedDict(diseaseGroup=['*'], values=values_)
+        ]
 
         return field
 
-    def _set_data(self, dtype: str = 'string') -> str:
-        """ Return the correct data type based on user input.
-
-        Args:
-            dtype (str): date, string, number. Default is 'string'.
-
-        Returns:
-            string: Assigned data type per LabKey schema specifications.
-
-        Reference:
-            https://www.labkey.org/Documentation/wiki-page.view?name=metadataJson
-        """
+    def _set_data(self, dtype: str = "string") -> str:
+        """ Return the correct data type based on user input. """
         if dtype.lower().startswith("date"):
             return "date"
         return "string"
 
     def _set_class(self, class_: str) -> bool:
-        """ Return boolean for correct class type based on user input.
-
-        Args:
-            class_ (str): Closed or open class
-
-        Returns:
-            bool: True if closed class, False if open class per LabKey schema
-            specifications.
-
-        Reference:
-            https://www.labkey.org/Documentation/wiki-page.view?name=metadataJson
-        """
-        if class_.lower().startswith('c'):
-            return True
-        return False
+        """ Return boolean for correct class type based on user input. """
+        return class_.lower().startswith("close")
 
     def _set_selection(self, selection: str) -> bool:
-        """ Return a boolean for correct selection type based on user input.
+        """ Return a boolean for correct selection type based on input. """
+        return selection.lower().startswith("multiple")
 
-        Args:
-            selection (str): Single or multiple
-
-        Returns:
-            bool: True if multiValue indicated, False if single.
-
-        Reference:
-            https://www.labkey.org/Documentation/wiki-page.view?name=metadataJson
-        """
-        return selection.lower().startswith('mu')
-
-    def _set_group(self, level: str, order: str = "alpha", orientation: str = "horizontal") -> OrderedDict:
+    def _set_group(self,
+                   level: str,
+                   order: str = "alpha",
+                   orientation: str = "horizontal") -> OrderedDict:
         return OrderedDict(level=level, order=order, orientation=orientation)
 
     def save(self, path: str = None):
         """ Convert and save a yaml-like schema to LabKey's format """
         path = self._path(path)
-        save_path = path.parent / f'{path.stem}.json'
-
-        with open(save_path, 'w') as pout:
+        with open(path.parent / f"{path.stem}.json", "w") as pout:
             json.dump(self.convert(), pout, indent=self.indent)
