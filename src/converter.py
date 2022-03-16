@@ -1,8 +1,6 @@
-#!/usr/bin/env python
-# -*- encoding: utf-8 -*-
 from collections import OrderedDict
 from pathlib import Path
-from typing import List, Union
+from typing import List
 import yaml
 import json
 
