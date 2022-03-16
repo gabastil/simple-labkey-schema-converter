@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 from collections import OrderedDict
-from datetime import datetime
 from pathlib import Path
+from typing import List, Union
 import yaml
 import json
 
@@ -14,30 +14,10 @@ class Schema:
         """ Assign path to YAML file to convert to JSON to path property """
         self.path = Path(path) if path is not None else path
 
-    def _path(self, path=None):
-        """ Return the correct path to use for the schema
-
-        Args:
-            path (str, optional): Path to return if present. Defaults to None.
-
-        Returns:
-            pathlib.Path: User input path as a Path object. None if none
-            specified.
-        """
+    def _path(self, path: str = None) -> Path:
         return Path(path) if path is not None else self.path
 
-    def load(self, path=None):
-        """ Retrun a dict from a yaml-structure schema file
-
-        Args:
-            path (str, optional): Path to yml file. Defaults to None.
-
-        Raises:
-            ValueError: Raised if no path specified in function or class
-
-        Returns:
-            dict: dictionary object with yaml file contents
-        """
+    def load(self, path: str = None) -> dict:
         path = self._path(path)
 
         if path:
@@ -49,22 +29,18 @@ class Schema:
 
 class LabKeySchema(Schema):
 
-    def __init__(self, path=None, indent=4, options=None):
+    def __init__(self, path: str = None, indent: int = 4, options: dict = None):
         super().__init__(path)
         self.indent = indent
         self.options = options
 
     def __repr__(self):
-        """ Pretty print the converted schema """
         schema = self.convert()
         return json.dumps(schema, indent=self.indent)
 
-    def convert(self):
-        """ Convert a yaml-like schema to LabKey's json format """
+    def convert(self) -> OrderedDict:
         data = self.load()
-
         tables = []
-
         for table_name, fields in data.items():
 
             # TODO: Account for nested tables
@@ -83,7 +59,7 @@ class LabKeySchema(Schema):
         pathology = OrderedDict(groupings=groupings, tables=tables)
         return OrderedDict(pathology=pathology)
 
-    def parse(self, fields):
+    def parse(self, fields: dict) -> List[OrderedDict]:
         """ Return a list of field values converted to LabKey's format """
         parsed = []
 
@@ -96,26 +72,24 @@ class LabKeySchema(Schema):
 
         return parsed
 
-    def _set_field(self, name, values):
-        """ Create a Field object (dict) for insertion into the schema.
-
-        Parameters
-        ----------
-            name (str): field name
-            values (list): Class, datatype, multiValue, and field values
-        """
+    def _set_field(self, name: str, values: List[str]) -> OrderedDict:
+        """ Create a Field object (dict) for insertion into the schema. """
         field = OrderedDict(field=name)
-
         class_, selection_, type_, *values_ = values
 
         if isinstance(class_, dict):
             class_, fields_listened_, triggers_ = class_['Linked']
 
-            # How to handle the conditional field
+            # NOTE: Conditional field handling
             handlers = OrderedDict(
-                values=triggers_, success='SHOW', failure='HIDE')
+                values=triggers_,
+                success='SHOW',
+                failure='HIDE'
+            )
             listeners = OrderedDict(
-                field=fields_listened_, handlers=[handlers])
+                field=fields_listened_,
+                handlers=[handlers]
+            )
             field['listeners'] = [listeners]
             field['hidden'] = True
 
@@ -127,11 +101,11 @@ class LabKeySchema(Schema):
 
         return field
 
-    def _set_data(self, type_='string'):
+    def _set_data(self, dtype: str = 'string') -> str:
         """ Return the correct data type based on user input.
 
         Args:
-            type_ (str): date, string, number. Default is 'string'.
+            dtype (str): date, string, number. Default is 'string'.
 
         Returns:
             string: Assigned data type per LabKey schema specifications.
@@ -139,11 +113,11 @@ class LabKeySchema(Schema):
         Reference:
             https://www.labkey.org/Documentation/wiki-page.view?name=metadataJson
         """
-        if type_.lower() == 'date':
-            return 'date'
-        return 'string'
+        if dtype.lower().startswith("date"):
+            return "date"
+        return "string"
 
-    def _set_class(self, class_):
+    def _set_class(self, class_: str) -> bool:
         """ Return boolean for correct class type based on user input.
 
         Args:
@@ -160,7 +134,7 @@ class LabKeySchema(Schema):
             return True
         return False
 
-    def _set_selection(self, selection):
+    def _set_selection(self, selection: str) -> bool:
         """ Return a boolean for correct selection type based on user input.
 
         Args:
@@ -174,10 +148,10 @@ class LabKeySchema(Schema):
         """
         return selection.lower().startswith('mu')
 
-    def _set_group(self, level, order="alpha", orientation="horizontal"):
+    def _set_group(self, level: str, order: str = "alpha", orientation: str = "horizontal") -> OrderedDict:
         return OrderedDict(level=level, order=order, orientation=orientation)
 
-    def save(self, path=None):
+    def save(self, path: str = None):
         """ Convert and save a yaml-like schema to LabKey's format """
         path = self._path(path)
         save_path = path.parent / f'{path.stem}.json'
