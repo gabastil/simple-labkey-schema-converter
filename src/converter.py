@@ -79,7 +79,10 @@ class LabKeySchema(Schema):
         class_, selection_, type_, *values_ = values
 
         if isinstance(class_, dict):
-            class_, fields_listened_, triggers_ = class_["Linked"]
+            key = "Linked"
+            if "linked" in class_:
+                key = key.lower()
+            class_, fields_listened_, triggers_ = class_[key]
 
             # NOTE: Conditional field handling
             handlers = OrderedDict(
