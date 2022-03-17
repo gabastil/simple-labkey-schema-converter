@@ -79,23 +79,25 @@ class LabKeySchema(Schema):
         class_, selection_, type_, *values_ = values
 
         if isinstance(class_, dict):
-            key = "Linked"
-            if "linked" in class_:
-                key = key.lower()
-            class_, fields_listened_, triggers_ = class_[key]
+            class_, *conditions = class_["Linked"]
 
-            # NOTE: Conditional field handling
-            handlers = OrderedDict(
-                values=triggers_,
-                success="SHOW",
-                failure="HIDE"
-            )
-            listeners = OrderedDict(
-                field=fields_listened_,
-                handlers=[handlers]
-            )
-            field["listeners"] = [listeners]
-            field["hidden"] = True
+            listeners = []
+            for condition in conditions:
+                # NOTE: Conditional field handling
+                handlers = OrderedDict(
+                    values=list(condition["Values"]),
+                    match=condition["Match"],
+                    success=condition["Success"],
+                    failure=condition["Failure"]
+                )
+                listener = OrderedDict(
+                    field=condition["Listen"],
+                    tableName=condition["TableName"],
+                    handlers=[handlers]
+                )
+                listeners.append(listener)
+            field["listeners"] = listeners
+            field["hidden"] = "True"
 
         field["datatype"] = self._set_data(type_)
         field["closedClass"] = self._set_class(class_)
@@ -112,13 +114,13 @@ class LabKeySchema(Schema):
             return "date"
         return "string"
 
-    def _set_class(self, class_: str) -> bool:
+    def _set_class(self, class_: str) -> str:
         """ Return boolean for correct class type based on user input. """
-        return class_.lower().startswith("close")
+        return str(class_.lower().startswith("close"))
 
-    def _set_selection(self, selection: str) -> bool:
+    def _set_selection(self, selection: str) -> str:
         """ Return a boolean for correct selection type based on input. """
-        return selection.lower().startswith("multiple")
+        return str(selection.lower().startswith("multiple"))
 
     def _set_group(self,
                    level: str,
