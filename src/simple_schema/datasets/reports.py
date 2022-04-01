@@ -6,18 +6,37 @@ NAACCR = 'naaccrId'
 
 class PathologyXMLReport:
 
-    def __init__(self, fn, strip=False):
+    def __init__(self, fn, strip=False, offset=0):
         self.fn = fn
         self._strip = strip
+        self.offset = offset
         self._sections = []
         self.parse(minidom.parse(self.fn))
+        if strip:
+            self._sections = list(filter(len, self._sections))
 
     def __repr__(self):
         return f"PathologyXLMReport('{self.fn}')"
 
     def __getitem__(self, index):
-        text = '\n'.join(self._sections)
+        text = ''.join(filter(len, self.sections))
         return text[index]
+
+    @property
+    def sections(self):
+        return self._sections
+
+    @property
+    def strip(self):
+        return self._strip
+
+    @property
+    def offset(self):
+        return self._offset
+
+    @offset.setter
+    def offset(self, offset):
+        self._offset = int(offset)
 
     def _append(self, text):
         if self._strip:
@@ -38,4 +57,6 @@ class PathologyXMLReport:
 
     def get_excerpts(self, indices):
         for start, stop in indices:
+            start -= self.offset
+            stop -= self.offset
             yield self[start:stop]
